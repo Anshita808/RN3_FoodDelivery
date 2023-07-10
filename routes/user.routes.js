@@ -6,7 +6,7 @@ const { UserModel } = require("../models/user.model");
 
 const UserRoute = express.Router();
 
-UserRoute.post("/api/register",async(req,res)=>{
+UserRoute.post("/register",async(req,res)=>{
     try {
         const {name,email,password,address} = req.body;
 
@@ -29,7 +29,7 @@ UserRoute.post("/api/register",async(req,res)=>{
   
 })
 
-  UserRoute.post("/api/login",async(req,res)=>{
+  UserRoute.post("/login",async(req,res)=>{
     try {
         const {email,password} = req.body;
         const isuserPresent = await UserModel.findOne({email:email});
@@ -53,7 +53,7 @@ UserRoute.post("/api/register",async(req,res)=>{
     }
   })
 
-  UserRoute.put("/api/user/:id/reset",async(req,res)=>{
+  UserRoute.put("/user/:id/reset",async(req,res)=>{
     try {
         const {id} = req.params;
         const {currentPassword, newPassword} = req.body;

@@ -8,9 +8,9 @@ require("dotenv").config()
 const app = express();
 
 app.use(express.json());
-app.use("/user",UserRoute);
-app.use("/api/restaurants",restaurantRoute)
-app.use("/api/orders",orderRoute)
+app.use("/api",UserRoute);
+app.use("/api",restaurantRoute)
+app.use("/api",orderRoute)
 
 app.listen(process.env.PORT, async()=>{
     try {
